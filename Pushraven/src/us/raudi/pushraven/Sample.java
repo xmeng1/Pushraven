@@ -13,13 +13,13 @@ public class Sample {
 		// 2. Json file downloaded from the Firebase console, containing details for authentication to google
 		// 3. Your project ID. Can also be found in the Firebase console.
 		String CLIENT_ID = "cA7gOth0X1Q:APA91bERuP4lNAw_oOe9huC27Eao6TDFLEgBmDGnln0IpJDgXyBttxCMV6u1VtegzbfFAI4b3TwAWOceg2oB2A2UuVzpYcxyrZHEVuEiZBF3dSnsWnZds-pdwMxefQDojBj6JvIqQEyd";
-		Pushraven.setAccountFile(new File("service_account.json"));
-		Pushraven.setProjectId("fcmtest-f57d4");
+		Pushraven.setAccountFile(new File(Sample.class.getResource("/deepnet-authenticator-test-firebase-adminsdk-s3zli-626f39976b.json").getPath()));
+		Pushraven.setProjectId("deepnet-authenticator-test");
 		
 		// Create Notification object
 		Notification not = new Notification()
 				.title("Hello World")
-				.body("This is a notification");
+				.body("This is a notification======");
 		
 		
 		// Create OPTIONAL target configuration (in this case Android)
@@ -35,7 +35,7 @@ public class Sample {
 		Message raven = new Message()
 				.name("id")
 				.notification(not)
-				.token(CLIENT_ID)
+				.topic("news") // could instead use: topic(String) or condition(String)
 				.android(droidCfg);
 		
 		

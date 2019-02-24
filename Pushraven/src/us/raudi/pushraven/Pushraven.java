@@ -1,19 +1,16 @@
 package us.raudi.pushraven;
 
-import javax.net.ssl.HttpsURLConnection;
-
-import org.json.simple.JSONObject;
-
 import com.google.api.client.googleapis.auth.oauth2.GoogleCredential;
-
 import java.io.BufferedWriter;
 import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
+import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Arrays;
+import org.json.simple.JSONObject;
 
 /**
  * This class is used to statically send Messages to FCM
@@ -66,12 +63,12 @@ public class Pushraven {
 		// check ProjectID and Account-File have been given and that File exists
 		if(!checkFileAndId()) return null;
 		
-		HttpsURLConnection con = null;
+		HttpURLConnection con = null;
 		try {
 			String url = API_URL+PROJECT_ID+"/messages:send";
 
 			URL fcm = new URL(url);
-			con = (HttpsURLConnection) fcm.openConnection();
+			con = (HttpURLConnection) fcm.openConnection();
 
 			// Set POST headers for authorization and content-type
 			con.setRequestMethod("POST");

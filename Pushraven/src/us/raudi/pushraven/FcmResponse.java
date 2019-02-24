@@ -1,10 +1,10 @@
 package us.raudi.pushraven;
 
-import javax.net.ssl.HttpsURLConnection;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
 
 /**
  * Holds response parameters from the FCM API request.
@@ -12,9 +12,9 @@ import java.io.InputStreamReader;
  * @author Raudius
  */
 public class FcmResponse {
-	HttpsURLConnection connection;
+	HttpURLConnection connection;
 
-	public FcmResponse(HttpsURLConnection con) {
+	public FcmResponse(HttpURLConnection con) {
 		connection = con;
 	}
 
